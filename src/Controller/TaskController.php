@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 class TaskController extends AbstractController
 {
@@ -30,12 +31,20 @@ class TaskController extends AbstractController
             ->add('save', SubmitType::class, ['label' => 'Create Task'])
             ->getForm();
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $task = $form->getData();
+            return $this->redirectToRoute('lesucces');
+        }
+
         return $this->render('task/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }
 
-    public function submissionsuccess(){
+    /**
+     * @Route("/success", name="success_path_name")
+     */
+    public function submissionSuccess(){
         return $this->render('task/success.html.twig', [
             'message' => 'Enregistrement fait avec succès !'
         ]);
