@@ -6,10 +6,19 @@
  * Time: 12:25
  */
 namespace App\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Task
 {
+    /**
+     * @Assert\NotBlank
+     */
     protected $task;
+
+    /**
+     * @Assert\NotBlank
+     * @Assert\Type("\DateTime")
+     */
     protected $dueDate;
 
     public function getTask()

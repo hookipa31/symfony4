@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\TaskType;
 
 class TaskController extends AbstractController
 {
@@ -25,11 +26,7 @@ class TaskController extends AbstractController
         $task->setTask('Write a blog post');
         $task->setDueDate(new \DateTime('tomorrow'));
 
-        $form = $this->createFormBuilder($task)
-            ->add('task', TextType::class)
-            ->add('dueDate', DateType::class)
-            ->add('save', SubmitType::class, ['label' => 'Create Task'])
-            ->getForm();
+        $form = $this->createForm(TaskType::class, $task);
 
         $form->handleRequest($request);
 
