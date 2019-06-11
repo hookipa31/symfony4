@@ -34,4 +34,10 @@ class TaskController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    public function submissionsuccess(){
+        return $this->render('task/success.html.twig', [
+            'message' => 'Enregistrement fait avec succès !'
+        ]);
+    }
 }
