@@ -2,7 +2,8 @@
 {% block body %}
     <h1>Formulaire ajouté avec succès</h1>
     <p class="important">
-        Task :.
+        Task :{{ task.task }} <br>
+        Date execution : {{ task.dueDate|date('Y-m-d') }}
     </p>
     Revenir au formulaire :
 {% endblock %}

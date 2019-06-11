@@ -31,9 +31,13 @@ class TaskController extends AbstractController
             ->add('save', SubmitType::class, ['label' => 'Create Task'])
             ->getForm();
 
+        $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $task = $form->getData();
-            return $this->redirectToRoute('lesucces');
+            return $this->render('task/success.html.twig', [
+                'task' => $task
+            ]);
         }
 
         return $this->render('task/new.html.twig', [
@@ -44,9 +48,11 @@ class TaskController extends AbstractController
     /**
      * @Route("/success", name="success_path_name")
      */
-    public function submissionSuccess(){
+    public function submissionSuccess(Task $task){
         return $this->render('task/success.html.twig', [
-            'message' => 'Enregistrement fait avec succès !'
+            'message' => 'Enregistrement fait avec succès !',
+            'nom_tache' => $task->getTask(),
+            'Date exécution' => $task->getDueDate()
         ]);
     }
 }
