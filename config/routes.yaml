@@ -7,3 +7,6 @@ app_contact:
 app_form:
     path: /addtask
     controller: App\Controller\TaskController::new
+app_add_product:
+    path: /addProduct
+    controller: App\Controller\ProductController::addProduct
