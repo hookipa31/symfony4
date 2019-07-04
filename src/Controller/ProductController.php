@@ -53,4 +53,14 @@ class ProductController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/admin", name="product_admin")
+     */
+    public function adminProduct(Request $request){
+        return $this->render('product/admin.html.twig',[
+            'message' => 'Espace Privés'
+        ]);
+    }
+
 }
