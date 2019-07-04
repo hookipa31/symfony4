@@ -1,3 +1,10 @@
 body {
     background-color: lightgray;
 }
+#form_Save {
+    border-radius : 4px;
+}
+
+form input {
+    border-radius : 4px;margin:4px;
+}
