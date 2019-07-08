@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Entity\User;
 
 class UserFixtures extends Fixture
 {
@@ -17,7 +18,7 @@ class UserFixtures extends Fixture
         $user->setFirstname('Ryan');
         $user->setLastname('Reynolds');
         $user->setEmail('ryan.reynolds@email.com');
-        $user->setPassword('hash');
+        $user->setPassword('$2y$12$1EaSJqzKEP.YjpT7dhJAB.ZxA/LeK9FxajwLmT8zUW17hkCPoQSDS');
 
         $manager->persist($user);
         $manager->flush();
