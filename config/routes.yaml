@@ -10,5 +10,8 @@ app_form:
 app_add_product:
     path: /addProduct
     controller: App\Controller\ProductController::addProduct
+app_home:
+    path: /home
+    controller: App\Controller\MainController::index
 logout:
     path: /logout

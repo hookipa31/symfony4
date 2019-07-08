@@ -4,9 +4,6 @@ security:
         in_memory:
             memory:
                 users:
-                    ryan:
-                        password: toto
-                        roles: 'ROLE_USER'
                     admin:
                         password: $2y$12$1EaSJqzKEP.YjpT7dhJAB.ZxA/LeK9FxajwLmT8zUW17hkCPoQSDS
                         roles: 'ROLE_ADMIN'
@@ -22,6 +19,9 @@ security:
         main:
             anonymous: ~
             http-basic: ~
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
         #secured_area:
             #logout:
                 #path: /logout
@@ -37,5 +37,6 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # require ROLE_ADMIN for /admin
-         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/profile, roles: ROLE_USER }

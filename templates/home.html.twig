@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>{{ message }}! </h1>
+
+    {% if app.user %}
+        {# user is logged in
+        btw this is a twig comment #}
+        <h2>Vous êtes loggé</h2>
+    {% else %}
+        # user is not logged in
+        <h2>Vous n'êtes pas loggé</h2>
+    {% endif %}
+
+    {% if not app.user %}
+        <h2>Vous êtes pas loggé (méthode 2)</h2>
+    {% endif %}
+</div>
+{% endblock %}
