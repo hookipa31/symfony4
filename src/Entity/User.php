@@ -32,6 +32,12 @@ class User implements UserInterface
      */
     private $email;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,6 +79,12 @@ class User implements UserInterface
         return $this;
     }
 
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
     /**
      * Returns the roles granted to the user.
      *
