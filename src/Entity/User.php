@@ -101,7 +101,7 @@ class User implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return ['ROLE_ADMIN'];
     }
 
     /**
@@ -114,7 +114,7 @@ class User implements UserInterface, \Serializable
      */
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->password;
     }
 
     /**
@@ -158,7 +158,7 @@ class User implements UserInterface, \Serializable
      */
     public function serialize()
     {
-        return serialise(array(
+        return serialize(array(
             $this->id,
             $this->firstname,
             $this->lastname,
