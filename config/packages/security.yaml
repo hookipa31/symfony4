@@ -1,12 +1,17 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory:
-                users:
-                    admin:
-                        password: $2y$12$1EaSJqzKEP.YjpT7dhJAB.ZxA/LeK9FxajwLmT8zUW17hkCPoQSDS
-                        roles: 'ROLE_ADMIN'
+        #in_memory:
+        #    memory:
+         #       users:
+        #            admin:
+         #               password: $2y$12$1EaSJqzKEP.YjpT7dhJAB.ZxA/LeK9FxajwLmT8zUW17hkCPoQSDS
+        #                roles: 'ROLE_ADMIN'
+        db_user:
+            entity:
+                class: App\Entity\User
+                property: email
+
     encoders:
         Symfony\Component\Security\Core\User\User:
             algorithm: bcrypt
@@ -19,6 +24,9 @@ security:
         main:
             anonymous: ~
             http-basic: ~
+            provider: db_user
+            form_login:
+                check_path: login
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
