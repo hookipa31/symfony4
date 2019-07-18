@@ -1,9 +1,7 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-app_contact:
-    path: /contact
-    controller: App\Controller\ContactController::index
+
 app_add_product:
     path: /addProduct
     controller: App\Controller\ProductController::addProduct
