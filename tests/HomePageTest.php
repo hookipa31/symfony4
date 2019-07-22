@@ -21,4 +21,13 @@ class HomePageTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+
+    public function testTitle()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/home');
+
+        $this->assertSelectorTextContains('html title', 'Hello ProductController !');
+    }
 }
