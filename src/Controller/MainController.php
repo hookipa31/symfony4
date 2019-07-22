@@ -33,8 +33,8 @@ $query = $em->createQuery('select u from \App\Entity\User');
 $user = $query->getResult();
 */
 
-      $repo = $this->getDoctrine()->getRepository(User::class);
-      $user =  $repo->findAllUsers();
+     // $repo = $this->getDoctrine()->getRepository(User::class);
+     // $user =  $repo->findAllUsers();
 
         return $this->render(
             'home.html.twig',
